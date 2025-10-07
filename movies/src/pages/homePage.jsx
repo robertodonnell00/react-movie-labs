@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";  
 import MovieList from "../components/movieList";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import Header from '../components/headerMovieList';
 import FilterCard from "../components/filterMoviesCard";
 
@@ -36,10 +36,10 @@ const HomePage = (props) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
 
-  const handleChange = (type, value) => {
-    if (type === "name") setNameFilter(value);
-    else setGenreFilter(value);
-  };
+  const handleChange = (e, type, value) => {
+    e.preventDefault()
+    props.onUserInput(type, value)   // NEW
+  }
 
 
   return (
