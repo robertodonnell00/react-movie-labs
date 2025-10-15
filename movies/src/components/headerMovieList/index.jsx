@@ -8,6 +8,8 @@ import { useNavigate } from "react-router";
 
 const Header = (props ) => {
   const title = props.title
+  const navigate = useNavigate();
+
   return (
     <Paper 
       component="div" 
